@@ -1,0 +1,16 @@
+
+Cái chat app giao diện thì giống zalo web
+Features của web: đăng ký,xong
+ đăng nhập,xong
+  quên mật khẩu, 
+  reset mật khẩu, xong
+ update avt, xong
+ -----------------------
+thêm bạn, xong 
+-------------
+chat real time 1 1, xong
+chat group, xong
+xóa tin nhắn, xong
+tìm kiếm bạn bè, xong
+gửi hình ảnh và file, xong
+gửi emoji xong

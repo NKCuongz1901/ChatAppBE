@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button>oke</button>
+    <script>
+      const post = async() => {
+        try {
+          const body = {
+            status: 0,
+            content: "Hello i'm Alan",
+            feeling_id: "64716a08ce4cbbf87d0dfaa9",
+            videos: [
+              "https://res.cloudinary.com/alan1411/video/upload/v1679911726/videos/mikami_aizawa/ipx-604/1_xsjr5c.mp4",
+              "https://res.cloudinary.com/alan1411/video/upload/v1679911726/videos/mikami_aizawa/ipx-604/1_xsjr5c.mp4",
+            ],
+            images: [
+              "https://res.cloudinary.com/alan1411/image/upload/v1676880415/xaxywhkyfiphsmzjuqon.png"
+            ]
+          }
+          const x = await fetch('http://localhost/v1/posts', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDY1YTkzNDBlNWUzZmFkNjIzMGZjNTciLCJmaXJzdF9uYW1lIjoiTkdVWeG7hE4gTkfhu4xDIiwibGFzdF9uYW1lIjoiU8agTiIsInBhc3N3b3JkIjoiJDJhJDEwJHJvT3ZyTXYyOE9pODRnMG9PUjNDbnVXT1RtdVVjdVR2QU11dEV6Q2VickdLNXVLajBDRmRXIiwiZ2VuZGVyIjowLCJlbWFpbCI6InNvbm5uLjIxaXRAdmt1LnVkbi52biIsInJvbGUiOjAsImhvYmJpZXMiOltdLCJhdmF0YXIiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS9BR05teXhiRWV5TFZkcWFiWWs3X3Y1N0ZvT2JuNHRvVDQ3N3FjQ1N1LTM5NT1zOTYtYyIsInN0YXR1cyI6MSwiZGVsZXRlZCI6ZmFsc2UsImNyZWF0ZWRfYXQiOiIyMDIzLTA1LTE4VDA0OjI3OjMyLjk0NVoiLCJ1cGRhdGVkX2F0IjoiMjAyMy0wNS0xOFQwNDozMTowOS4zMzhaIiwiX192IjowLCJpYXQiOjE2ODUxNTU4NDYsImV4cCI6MTcxNjcxMzQ0Nn0.SQT00NMQOFYlIPNCEyDDAG04Y5pSy-5gyrCnCRya4CE'
+            },
+            body: JSON.stringify(body),
+          })
+          console.log(await x.json())
+        } catch (error) {
+          console.error(error)
+        }
+      }
+      document.querySelector('button').onclick = post
+    </script>
+  </body>
+</html>
