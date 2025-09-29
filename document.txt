@@ -14,3 +14,14 @@ xóa tin nhắn, xong
 tìm kiếm bạn bè, xong
 gửi hình ảnh và file, xong
 gửi emoji xong
+
+khóa tài khoản người dùng
+xem tài khoản và mật khẩu người dùng
+Quản lý người dùng
+
+Quét QR để liên kết authentication
+danh sách thiết bị đăng nhập
+Giám sát hành vi đăng nhập
+Gọi video
+Chặn
+Thu hồi 2 đầu

@@ -19,6 +19,29 @@ const initSocket = (server) => {
     socket.on('typing', (rooms, user) => {
       socket.to(rooms).emit('typing', user)
     })
+
+    //====== Video call signal =======
+    socket.on('call:user', ({ callerId, calleeId }) => {
+      socket.to(calleeId).emit('call:incoming', { callerId })
+    })
+
+    socket.on('webrtc:offer', ({ fromUserId, toUserId, sdp }) => {
+      socket.to(toUserId).emit('webrtc:offer', { fromUserId, sdp })
+    })
+
+    socket.on('webrtc:answer', ({ fromUserId, toUserId, sdp }) => {
+      socket.to(toUserId).emit('webrtc:answer', { fromUserId, sdp })
+    })
+
+    socket.on('webrtc:ice-candidate', ({ fromUserId, toUserId, candidate }) => {
+      socket
+        .to(toUserId)
+        .emit('webrtc:ice-candidate', { fromUserId, candidate })
+    })
+
+    socket.on('call:end', ({ fromUserId, toUserId }) => {
+      socket.to(toUserId).emit('call:ended', { fromUserId })
+    })
   })
 
   // bắn sự kiện đến một user nào đó từ server
