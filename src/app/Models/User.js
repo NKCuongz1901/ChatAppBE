@@ -26,6 +26,18 @@ const userSchema = new mongoose.Schema(
     code: {
       type: String,
     },
+    twoFAEnable: {
+      type: Boolean,
+      default: false,
+    },
+    twoFASecretCode: {
+      type: String,
+      default: null,
+    },
+    twoFARecoveryCode: {
+      type: String,
+      default: null,
+    },
   },
   {
     timestamps: true,

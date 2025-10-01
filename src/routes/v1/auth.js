@@ -38,4 +38,8 @@ router.put(
   AuthController.updateAvatar
 )
 
+router.post('/enable-two-fa', validateUser, AuthController.enableTwoFA)
+router.post('/verify-two-fa', validateUser, AuthController.verifyTwoFACode)
+router.post('/disable-two-fa', validateUser, AuthController.disableTwoFA)
+
 export default router
