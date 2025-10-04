@@ -15,13 +15,16 @@ tìm kiếm bạn bè, xong
 gửi hình ảnh và file, xong
 gửi emoji xong
 ======================================
+ADMIN
 khóa tài khoản người dùng
 xem tài khoản và mật khẩu người dùng
 Quản lý người dùng
 
-Quét QR để liên kết authentication
+
+USER
+Quét QR để liên kết authentication xong
 danh sách thiết bị đăng nhập
 Giám sát hành vi đăng nhập
 Gọi video xong
 Chặn
-Thu hồi 2 đầu
+Thu hồi 2 đầu xong

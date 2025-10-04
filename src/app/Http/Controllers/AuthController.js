@@ -1,3 +1,4 @@
+import LoginSession from '@/app/Models/LoginSession'
 import User from '@/app/Models/User'
 import {
   generateCode,
@@ -92,6 +93,23 @@ const login = async (req, res, next) => {
 
     const token = createToken(user.toObject())
 
+    if (req.deviceInfo) {
+      try {
+        await LoginSession.create({
+          userId: user._id,
+          browser: req.deviceInfo.browser,
+          browserVersion: req.deviceInfo.browserVersion,
+          operatingSystem: req.deviceInfo.operatingSystem,
+          deviceType: req.deviceInfo.deviceType,
+          ipAddress: req.deviceInfo.ipAddress,
+          userAgent: req.deviceInfo.userAgent,
+          loginTime: new Date(),
+          isActive: true,
+        })
+      } catch (error) {
+        console.error('Error saving login session:', error)
+      }
+    }
     const userResult = getUserResult(user)
 
     return res.status(200).json({ user: userResult, token })

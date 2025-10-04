@@ -7,10 +7,12 @@ import uploadRouter from './upload'
 import UserController from '@/app/Http/Controllers/UserController'
 import { validateUser } from '@/app/Http/Middleware/ValidateUserMiddleware'
 import emojiRouter from './emoji'
+import loginSessionRouter from './LoginSession'
 // lấy ra bộ định tuyến
 const router = express.Router()
 
 router.use('/auth', authRouter)
+router.use('/login-sessions', loginSessionRouter)
 router.use('/friends', friendRouter)
 router.use('/chats', chatRouter)
 router.use('/messages', messageRouter)

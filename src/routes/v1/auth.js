@@ -7,6 +7,7 @@ import RegisterValidator from '@/app/Http/Validators/body/auth/RegisterValidator
 import LoginValidator from '@/app/Http/Validators/body/auth/LoginValidator'
 import UpdateAvatarValidator from '@/app/Http/Validators/body/auth/UpdateAvatarValidator'
 import { validateUser } from '@/app/Http/Middleware/ValidateUserMiddleware'
+import { extractDeviceInfo } from '@/app/Http/Middleware/ExtractDeviceInfo'
 
 // lấy ra bộ định tuyến
 const router = express.Router()
@@ -23,7 +24,12 @@ router.post(
   AuthController.handleResetPassword
 )
 
-router.post('/login', validateBody(LoginValidator), AuthController.login)
+router.post(
+  '/login',
+  validateBody(LoginValidator),
+  extractDeviceInfo,
+  AuthController.login
+)
 
 router.post(
   '/register',
